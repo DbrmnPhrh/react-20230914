@@ -1,0 +1,64 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Игнорировать папку node_modules и её содержимое
+node_modules/
+
+# Игнорировать папку build и её содержимое (если используется для сборки проекта)
+build/
+
+# Игнорировать файлы, созданные редакторами и IDE
+.vscode/
+.idea/
+
+# Игнорировать файлы настроек проекта
+.vite/
+
+# Игнорировать файлы настроек SWC
+.swcrc
+
+# Игнорировать файлы настроек ESLint
+.eslintrc.js
+.eslintignore
+
+# Игнорировать файлы настроек Prettier
+.prettierrc.js
+.prettierignore
+
+# Игнорировать временные и кэш-файлы
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Игнорировать файлы и директории, созданные сборщиками и компиляторами
+/dist/
+/.cache/
+/build/
+/public/
+
+# Игнорировать файлы, созданные при выполнении сборки или тестирования
+coverage/
+output/
+__tests__/coverage/
