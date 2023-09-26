@@ -62,3 +62,6 @@ yarn-error.log*
 coverage/
 output/
 __tests__/coverage/
+
+# Other
+info.txt
