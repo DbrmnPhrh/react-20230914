@@ -1,9 +1,13 @@
+import classNames from "classnames"
 import { Tab } from "../Tab/component"
 
-export const RestaurantTabs = ({restaurants, onTabClick}) => {
-    return <div>
+export const RestaurantTabs = ({restaurants, onTabClick, activeRestaurantIndex}) => {
+
+    return <div className={classNames("display-flex", 'margin-t-2')}>
               {restaurants.map((restaurant, index) => (
-                <Tab key={restaurant.id} title={restaurant.name} onClick={() => onTabClick(index)} />
+                <div key={restaurant.id} className={classNames("margin-l-2")}>
+                  <Tab title={restaurant.name} onClick={() => onTabClick(index)} index={index} activeRestaurantIndex={activeRestaurantIndex} />
+                </div>
               ))}
            </div>
 }
