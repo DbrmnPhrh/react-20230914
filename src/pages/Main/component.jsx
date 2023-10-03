@@ -11,7 +11,7 @@ export const MainPage = () => {
     return <div>
                <Header
                  restaurantName={restaurants[activeRestaurantIndex].name}
-                 position={styles.header}
+                 className={styles.header}
                />
                <RestaurantTabs
                  restaurants={restaurants}
@@ -19,6 +19,6 @@ export const MainPage = () => {
                  activeRestaurantIndex={activeRestaurantIndex}
                />
                <Restaurant restaurant={restaurants[activeRestaurantIndex]} />
-               <Footer position={styles.footer} />
+               <Footer className={styles.footer} />
            </div>
 }
