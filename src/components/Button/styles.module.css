@@ -1,0 +1,49 @@
+.root {
+  color: black;
+  cursor: pointer;
+}
+
+.active {
+  border: 1px solid black;
+  font-weight: bold;
+  background-color: #87b42c;
+  color: white;
+}
+
+.primary {
+  border: 2px solid rgb(34, 34, 34);
+  font-weight: bold;
+  background-color: hsl(80, 69%, 61%);
+  color: white;
+}
+
+.secondary {
+  border: 1px solid rgb(34, 34, 34);
+  background-color: hwb(27 32% 7% / 0.705);
+}
+
+.round-corner {
+  border-radius: 20%;
+}
+
+.small {
+  width: 100px;
+  height: 12px
+}
+
+.medium {
+  width: 120px;
+  height: 20px
+}
+  
+.large {
+  width: 200px;
+  height: 24px
+}
+
+.disabled {
+  border: 1px solid #7c7c7c;
+  color: gray;
+  background-color: #e4e4e4;
+  opacity: 100%;
+}
