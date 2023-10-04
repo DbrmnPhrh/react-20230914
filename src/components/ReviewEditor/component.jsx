@@ -26,7 +26,7 @@ const reducer = (state, action) => {
 }
 
 
-export const ReviewEditor = () => {
+export const ReviewEditor = ({onClick}) => {
   const {theme} = useContext(ThemeContext);
   const [formValue, dispatch] = useReducer(reducer, DEFAULT_REVIEW_VALUES);
   const onRatingChange = (newRating) => dispatch({ type: 'setRating', payload: newRating });
