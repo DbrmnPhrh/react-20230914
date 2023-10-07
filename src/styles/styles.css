@@ -41,11 +41,6 @@ h2 {
   margin-right: 4px;
 }
 
-.theme_default {
-  background-color: hsl(80, 69%, 61%);
-  color: white;
-}
-
 .theme_dark {
   background-color: #222222;
   color: white;
