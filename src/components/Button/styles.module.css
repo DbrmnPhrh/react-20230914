@@ -26,6 +26,11 @@
   border-radius: 20%;
 }
 
+.close {
+  width: 24px;
+  height: 24px
+}
+
 .small {
   width: 100px;
   height: 12px

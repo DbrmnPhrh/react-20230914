@@ -32,6 +32,10 @@ h2 {
   margin-top: 8px;
 }
 
+.margin-b-2 {
+  margin-bottom: 8px;
+}
+
 .margin-l-2 {
   margin-left: 8px;
 }
@@ -49,25 +53,4 @@ h2 {
 .theme_blue {
   background-color: #3ca1ff;
   color: white;
-}
-
-.modal_background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.modal_card {
-  background: white;
-  padding: 25px;
-  border: 3px solid black;
-  border-radius: 5px;
 }

@@ -1,17 +1,18 @@
-import classNames from 'classnames'
 import { useState } from 'react'
-import { createPortal } from 'react-dom'
 import { Button } from '../Button/component'
+import { Modal } from '../Modal/component'
 import { ReviewEditor } from '../ReviewEditor/component'
 
 export const ReviewEditorButton = () => {
 	const [isModalOpened, setIsModalOpened] = useState(false)
 
-  const handlerCheckTarget = e => {
-    if (e.target === e.currentTarget) {
-      setIsModalOpened(false);
-    }
-  }
+	const onClose = () => setIsModalOpened(false)
+
+	const handlerCheckTarget = e => {
+		if (e.target === e.currentTarget) {
+			onClose()
+		}
+	}
 
 	return (
 		<>
@@ -21,17 +22,11 @@ export const ReviewEditorButton = () => {
 				type={'primary'}
 				size='medium'
 			></Button>
-			{isModalOpened &&
-				createPortal(
-					<div
-						className={classNames('modal_background')}
-            onClick={handlerCheckTarget}
-					>
-						<div className={classNames('modal_card')}>
-							<ReviewEditor onClose={() => setIsModalOpened(false)}/>
-						</div>
-					</div>, document.getElementById('modal-container')
-				)}
+			{isModalOpened && (
+				<Modal onClose={onClose} handlerCheckTarget={handlerCheckTarget}>
+					<ReviewEditor onClose={onClose} />
+				</Modal>
+			)}
 		</>
 	)
 }
