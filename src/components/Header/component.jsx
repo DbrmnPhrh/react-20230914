@@ -8,7 +8,7 @@ export const Header = ({restaurantName, className}) => {
   const {theme} = useContext(ThemeContext);
   return <header className={classNames(styles.root, className, `theme_${theme}`)}>
     <div className={classNames(styles['title-container'])}>
-      <h1>Welcome to {restaurantName} restaurant!</h1>
+      <h1>Welcome!</h1>
     </div>
     <div className={classNames(styles['theme-switcher-container'])}>
       <ThemeSwitcher />
