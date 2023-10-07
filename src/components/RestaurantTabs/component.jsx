@@ -1,5 +1,5 @@
-import classNames from "classnames"
-import { Tab } from "../Tab/component"
+import classNames from "classnames";
+import { Tab } from "../Tab/component";
 
 export const RestaurantTabs = ({restaurants, onTabClick, activeRestaurantIndex}) => {
 

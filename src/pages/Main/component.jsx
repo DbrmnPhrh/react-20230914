@@ -1,24 +1,19 @@
-import { useState } from "react";
-import { restaurants } from "../../../constants/mock";
-import { RestaurantTabs } from "../../components/RestaurantTabs/component";
-import { Restaurant } from "../../components/Restaurant/component";
-import { Header } from "../../components/Header/component";
-import { Footer } from "../../components/Footer/component";
-import styles from "./styles.module.css";
+import { useState } from 'react'
+import { restaurants } from '../../../constants/mock'
+import { Layout } from '../../components/Layout/component'
+import { Restaurant } from '../../components/Restaurant/component'
+import { RestaurantTabs } from '../../components/RestaurantTabs/component'
 
 export const MainPage = () => {
-    const [activeRestaurantIndex, setActiveRestaurantIndex] = useState(4);
-    return <div>
-               <Header
-                 restaurantName={restaurants[activeRestaurantIndex].name}
-                 className={styles.header}
-               />
-               <RestaurantTabs
-                 restaurants={restaurants}
-                 onTabClick={setActiveRestaurantIndex}
-                 activeRestaurantIndex={activeRestaurantIndex}
-               />
-               <Restaurant restaurant={restaurants[activeRestaurantIndex]} />
-               <Footer className={styles.footer} />
-           </div>
+	const [activeRestaurantIndex, setActiveRestaurantIndex] = useState(0)
+	return (
+			<Layout>
+				<RestaurantTabs
+					restaurants={restaurants}
+					onTabClick={setActiveRestaurantIndex}
+					activeRestaurantIndex={activeRestaurantIndex}
+				/>
+				<Restaurant restaurant={restaurants[activeRestaurantIndex]} />
+			</Layout>
+	)
 }
