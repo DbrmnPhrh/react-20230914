@@ -79,13 +79,13 @@ export const ReviewEditor = ({ onClose }) => {
 					<td>
 						<div className={classNames('margin-t-2')}>
 							<Button
-								title='Submit'
+								children='Submit'
 								onClick={() => dispatch({ type: 'reset' })}
 								type='primary'
 							/>
 							<Button
                 className={classNames('margin-l-2')}
-								title='Cancel'
+								children='Cancel'
 								onClick={() => onClose()}
 								type='primary'
 							/>

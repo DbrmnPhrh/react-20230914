@@ -12,7 +12,7 @@ export const Modal = ({ children, onClose, handlerCheckTarget }) => {
 			<div className={classNames(styles.modalCard)}>
 				<div className={classNames(styles.closeButton, 'margin-b-2')}>
 					<Button
-						title='X'
+						children='X'
 						onClick={onClose}
 						type={'primary'}
 						size='close'

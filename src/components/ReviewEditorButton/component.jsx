@@ -17,7 +17,7 @@ export const ReviewEditorButton = () => {
 	return (
 		<>
 			<Button
-				title='Add new review'
+				children='Add new review'
 				onClick={() => setIsModalOpened(true)}
 				type={'primary'}
 				size='medium'

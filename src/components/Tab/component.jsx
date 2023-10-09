@@ -1,10 +1,10 @@
 import { Button } from "../Button/component";
 
-export const Tab = ({title, onClick, index, activeRestaurantIndex}) => {
+export const Tab = ({title, onClick, type}) => {
   return <Button
-    title={title}
+    children={title}
     onClick={onClick}
-    type={index === activeRestaurantIndex ? "active" : "primary"}
+    type={type}
     size="medium"
   ></Button>
 }
