@@ -19,7 +19,7 @@ export const ReviewEditorButton = () => {
 			<Button
 				children='Add new review'
 				onClick={() => setIsModalOpened(true)}
-				type={'primary'}
+				type={'secondary'}
 				size='medium'
 			></Button>
 			{isModalOpened && (

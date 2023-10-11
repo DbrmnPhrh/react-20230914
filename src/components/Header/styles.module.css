@@ -7,14 +7,14 @@
   background-color: yellowgreen;
 }
 
-.title-container {
+.titleContainer {
   display: flex;
   justify-content: center;
-  width: 95%;
+  width: 90%;
 }
 
-.theme-switcher-container {
+.themeSwitcherContainer {
   display: flex;
   justify-content: center;
-  width: 5%;
+  width: 10%;
 }
