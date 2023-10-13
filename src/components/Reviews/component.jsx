@@ -1,10 +1,7 @@
-import { useSelector } from "react-redux";
 import { Review } from "../Review/component";
 import { ReviewEditorButton } from "../ReviewEditorButton/component";
 
-export const Reviews = () => {
-
-	const reviewIds = useSelector(state => state.review.ids);
+export const Reviews = ({reviewIds}) => {
 
   return (
 		<div onClick={(e) => e.preventDefault()}>

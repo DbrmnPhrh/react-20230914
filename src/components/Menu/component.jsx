@@ -1,9 +1,6 @@
-import { useSelector } from "react-redux";
 import { Dish } from "../Dish/component";
 
-export const Menu = () => {
-
-  const dishIds = useSelector(state => state.dish.ids);
+export const Menu = ({dishIds}) => {
 
   return <div>
     <h3>Menu</h3>
