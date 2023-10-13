@@ -1,12 +1,14 @@
 import classNames from "classnames";
+import { useSelector } from "react-redux";
 import { Tab } from "../Tab/component";
 
-export const RestaurantTabs = ({restaurants, onTabClick, activeRestaurantIndex}) => {
+export const RestaurantTabs = ({onTabClick, activeRestaurantId}) => {
+  	const restaurantIds = useSelector(state => state.restaurant.ids);
 
     return <div className={classNames("display-flex", 'margin-t-3')}>
-              {restaurants.map((restaurant, index) => (
-                <div key={restaurant.id} className={classNames("margin-l-2")}>
-                  <Tab title={restaurant.name} onClick={() => onTabClick(index)} type={index === activeRestaurantIndex ? "active" : "primary"} />
+              {restaurantIds.length > 0 && restaurantIds.map(id => (
+                <div key={id} className={classNames("margin-l-2")}>
+                  <Tab restaurantId={id} onClick={() => onTabClick(id)} type={id === activeRestaurantId ? "active" : "primary"} />
                 </div>
               ))}
            </div>
