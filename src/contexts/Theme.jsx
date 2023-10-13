@@ -6,10 +6,11 @@ export const useTheme = () => {
   return useContext(ThemeContext);
 };
 
+const themes = ['default', 'dark', 'blue'];
+
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('default');
   const [currentThemeIndex, setThemeIndex] = useState(0);
-  const themes = ['default', 'dark', 'blue'];
   const switchTheme = () => {
     const newThemeIndex = (currentThemeIndex + 1) % themes.length;
     setThemeIndex(newThemeIndex);
