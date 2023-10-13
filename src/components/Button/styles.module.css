@@ -1,5 +1,4 @@
 .root {
-  color: black;
   cursor: pointer;
 }
 
@@ -15,11 +14,31 @@
   font-weight: bold;
   background-color: hsl(80, 69%, 61%);
   color: white;
+  transition: background-color 0.2s;
+}
+
+.primary:disabled {
+  border: 1px solid #7c7c7c;
+  color: gray;
+  background-color: #e4e4e4;
+  opacity: 100%;
+}
+
+.primary:hover {
+  opacity: 0.9;
+  background-color: hwb(80 25% 33%);
 }
 
 .secondary {
   border: 1px solid rgb(34, 34, 34);
   background-color: hwb(27 32% 7% / 0.705);
+}
+
+.secondary:disabled {
+  border: 1px solid #7c7c7c;
+  color: gray;
+  background-color: #e4e4e4;
+  opacity: 100%;
 }
 
 .round-corner {
@@ -32,23 +51,16 @@
 }
 
 .small {
-  width: 100px;
-  height: 12px
+  height: 20px;
+  font-size: 10px;
 }
 
 .medium {
-  width: 120px;
-  height: 20px
+  height: 24px;
+  font-size: 14px;
 }
 
 .large {
-  width: 200px;
-  height: 24px
-}
-
-.disabled {
-  border: 1px solid #7c7c7c;
-  color: gray;
-  background-color: #e4e4e4;
-  opacity: 100%;
+  height: 26px;
+  font-size: 16px;
 }

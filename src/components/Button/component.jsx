@@ -14,9 +14,6 @@ export const Button = ({children, onClick, className, type, size, form, disabled
         styles[size],
         styles[form],
         `theme_${theme}`,
-        {
-          [styles.disabled]: disabled,
-        },
       )}
       onClick={onClick}
       disabled={disabled}

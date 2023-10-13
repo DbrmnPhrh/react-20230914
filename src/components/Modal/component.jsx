@@ -10,12 +10,13 @@ export const Modal = ({ children, onClose, handlerCheckTarget }) => {
 			onClick={handlerCheckTarget}
 		>
 			<div className={classNames(styles.modalCard)}>
-				<div className={classNames(styles.closeButton, 'margin-b-2')}>
+				<div className={classNames('margin-b-2', 'wide', 'display-flex', 'justify-content-end')}>
 					<Button
 						children='X'
 						onClick={onClose}
 						type={'primary'}
-						size='close'
+						size='small'
+						className={styles.closeButton}
 					></Button>
 				</div>
 				{children}
