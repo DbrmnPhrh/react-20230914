@@ -5,7 +5,7 @@ import { Reviews } from "../Reviews/component";
 export const Restaurant = ({restaurant}) => (
   <div className={classNames("margin-l-2")}>
     <h2>{restaurant.name}</h2>
-    <Menu menu={restaurant.menu}/>
-    <Reviews reviews={restaurant.reviews}/>
+    <Menu/>
+    <Reviews/>
   </div>
 )

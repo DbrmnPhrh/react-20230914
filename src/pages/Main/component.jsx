@@ -5,7 +5,8 @@ import { Restaurant } from '../../components/Restaurant/component'
 import { RestaurantTabs } from '../../components/RestaurantTabs/component'
 
 export const MainPage = () => {
-	const [activeRestaurantIndex, setActiveRestaurantIndex] = useState(0)
+	const [activeRestaurantIndex, setActiveRestaurantIndex] = useState(0);
+	// const restaurantIds = useSelector(state => state.restaurant.ids);
 	return (
 			<Layout>
 				<RestaurantTabs

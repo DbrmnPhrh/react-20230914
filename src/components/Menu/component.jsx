@@ -1,10 +1,14 @@
-import { Dish } from "../Dish/component"
+import { useSelector } from "react-redux";
+import { Dish } from "../Dish/component";
 
-export const Menu = ({menu}) => (
-  <div>
+export const Menu = () => {
+
+  const dishIds = useSelector(state => state.dish.ids);
+
+  return <div>
     <h3>Menu</h3>
     <ul>
-     {menu.map(dish => <li key={dish.id}><Dish dishName={dish.name} /></li>)}
-   </ul>
+      {dishIds?.length > 0 && dishIds.map(id => <li key={id}><Dish dishId={id} /></li>)}
+    </ul>
   </div>
-)
+}
