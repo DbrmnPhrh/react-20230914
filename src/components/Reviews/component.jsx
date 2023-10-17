@@ -1,4 +1,4 @@
-import { Review } from "../Review/component";
+import { ReviewContainer } from "../Review/container";
 import { ReviewEditorButton } from "../ReviewEditorButton/component";
 
 export const Reviews = ({reviewIds}) => {
@@ -8,7 +8,7 @@ export const Reviews = ({reviewIds}) => {
 			<ul>
 				{reviewIds.length > 0 && reviewIds.map(id => (
 					<li key={id}>
-						<Review reviewId={id} />
+						<ReviewContainer reviewId={id} />
 					</li>
 				))}
 			</ul>

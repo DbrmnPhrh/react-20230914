@@ -1,15 +1,15 @@
 import classNames from "classnames";
-import { useSelector } from "react-redux";
-import { selectRestaurantIds } from "../../redux/entities/restaurant/selectors";
-import { Tab } from "../Tab/component";
+import { RestaurantTabContainer } from "../RestaurantTab/container";
 
-export const RestaurantTabs = ({onTabClick, activeRestaurantId}) => {
-  	const restaurantIds = useSelector(state => selectRestaurantIds(state));
-
+export const RestaurantTabs = ({onTabClick, activeRestaurantId, restaurantIds}) => {
     return <div className={classNames("display-flex", 'margin-t-3')}>
               {restaurantIds.length > 0 && restaurantIds.map(id => (
                 <div key={id} className={classNames("margin-l-2")}>
-                  <Tab restaurantId={id} onClick={() => onTabClick(id)} type={id === activeRestaurantId ? "active" : "primary"} />
+                  <RestaurantTabContainer
+                    restaurantId={id}
+                    onClick={() => onTabClick(id)}
+                    isActive={id === activeRestaurantId}
+                  />
                 </div>
               ))}
            </div>
