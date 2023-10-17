@@ -1,9 +1,10 @@
 import classNames from "classnames";
 import { useSelector } from "react-redux";
+import { selectRestaurantIds } from "../../redux/entities/restaurant/selectors";
 import { Tab } from "../Tab/component";
 
 export const RestaurantTabs = ({onTabClick, activeRestaurantId}) => {
-  	const restaurantIds = useSelector(state => state.restaurant.ids);
+  	const restaurantIds = useSelector(state => selectRestaurantIds(state));
 
     return <div className={classNames("display-flex", 'margin-t-3')}>
               {restaurantIds.length > 0 && restaurantIds.map(id => (

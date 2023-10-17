@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
+import { selectDishNameById } from "../../redux/entities/dish/selectors";
 import { Counter } from "../Counter/component";
 
 export const Dish = ({dishId}) => {
-  const dish = useSelector(state => state.dish.entities[dishId]);
-  return <div>{dish.name}: <Counter min={0} max={5}/></div>;
+  const dishName = useSelector(state => selectDishNameById(state, dishId));
+  return <div>{dishName}: <Counter min={0} max={5}/></div>;
 }

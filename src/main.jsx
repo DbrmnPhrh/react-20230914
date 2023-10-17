@@ -7,11 +7,11 @@ import store from './redux'
 import './styles/styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<React.StrictMode>
+	// <React.StrictMode>
 		<ThemeProvider>
 			<Provider store={store}>
 				<MainPage/>
 			</Provider>
 		</ThemeProvider>
-	</React.StrictMode>
+	// </React.StrictMode>
 )
