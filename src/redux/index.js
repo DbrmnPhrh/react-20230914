@@ -14,10 +14,11 @@ const store = configureStore({
     review,
     user,
   },
+  /** Порядок middleware ВАЖЕН ! */
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware(),
     loggerMiddleware
-  ], /** Порядок middleware ВАЖЕН ! */
+  ],
 });
 
 export default store;

@@ -1,11 +1,13 @@
 import classNames from 'classnames';
+import { useSelector } from 'react-redux';
+import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors';
 import { RestaurantTabContainer } from '../RestaurantTab/container';
 
 export const RestaurantTabs = ({
 	onTabClick,
 	activeRestaurantId,
-	restaurantIds,
 }) => {
+	const restaurantIds = useSelector(selectRestaurantIds);
 	return (
 		<div className={classNames('display-flex', 'margin-t-3')}>
 			{restaurantIds.length > 0 &&

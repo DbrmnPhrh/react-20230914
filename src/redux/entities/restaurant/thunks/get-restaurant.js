@@ -8,7 +8,6 @@ export const getRestaurant = createAsyncThunk(
     return (await response).json();
   },
   {
-    /** Условие вызова thunk. Чтобы, например, если блюда были загружены ранее - не грузить их повторно */
-    // condition: (_, { getState }) => !selectRestaurantIds(getState())?.length,
+    condition: (_, { getState }) => !selectRestaurantIds(getState())?.length,
   }
 );
