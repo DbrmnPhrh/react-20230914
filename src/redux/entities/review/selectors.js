@@ -5,3 +5,5 @@ export const selectReviewById = (state, id) => selectReviewModule(state).entitie
 export const selectReviewTextById = (state, id) => selectReviewById(state, id).text;
 
 export const selectReviewIds = state => selectReviewModule(state).ids;
+
+export const selectReviewLoadingStatus = (state) => selectReviewModule(state).status

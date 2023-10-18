@@ -8,7 +8,7 @@ export const Restaurant = ({ restaurant }) => {
       ? <div className={classNames('margin-l-2')}>
         <h2>{restaurant.name}</h2>
         <MenuContainer restaurantId={restaurant.id} />
-        <Reviews reviewIds={restaurant.reviews} />
+        <Reviews restaurantId={restaurant.id}/>
       </div>
       : null
 	)
