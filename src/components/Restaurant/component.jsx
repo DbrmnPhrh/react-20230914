@@ -1,9 +1,8 @@
-import classNames from 'classnames'
-import { MenuContainer } from '../Menu/container'
-import { Reviews } from '../Reviews/component'
+import classNames from 'classnames';
+import { MenuContainer } from '../Menu/container';
+import { Reviews } from '../Reviews/component';
 
 export const Restaurant = ({ restaurant }) => {
-
 	return (
 		restaurant
       ? <div className={classNames('margin-l-2')}>

@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { REQUEST_STATUS } from "../../constants/statuses";
 import { selectDishIds, selectDishLoadingStatus } from "../../redux/entities/dish/selectors";
 import { getDishes } from "../../redux/entities/dish/thunks/get-dishes";
@@ -11,8 +12,7 @@ export const MenuContainer = (restaurantId) => {
 
   useEffect(() => {
     dispatch(getDishes(restaurantId));
-    console.log(dishIds);
-  }, []); // Хук useEffect вызовется один раз при маунте компонента
+  }, [restaurantId]); // Хук useEffect() будет вызываться при каждом изменении restaurantId
 
   return loadingStatus === REQUEST_STATUS.pending ? <div>Loading...</div> : <Menu dishIds={dishIds}/>;
 }

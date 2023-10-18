@@ -1,23 +1,23 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { REQUEST_STATUS } from "../../../constants/statuses";
-import { getRestaurant } from "./thunks/get-restaurant";
+import { getRestaurants } from "./thunks/get-restaurants";
 
 const entityAdapter = createEntityAdapter();
 
 const { reducer } = createSlice({
-  name: 'restaurant',
+  name: 'restaurants',
   initialState: entityAdapter.getInitialState({
     status: REQUEST_STATUS.idle,
   }),
   extraReducers: (builder) => builder
-    .addCase(getRestaurant.pending, (state) => {
+    .addCase(getRestaurants.pending, (state) => {
       state.status = REQUEST_STATUS.pending;
     })
-    .addCase(getRestaurant.fulfilled, (state, {payload}) => {
+    .addCase(getRestaurants.fulfilled, (state, {payload}) => {
       entityAdapter.setAll(state, payload);
       state.status = REQUEST_STATUS.fulfilled;
     })
-    .addCase(getRestaurant.rejected, (state) => {
+    .addCase(getRestaurants.rejected, (state) => {
       state.status = REQUEST_STATUS.rejected;
     }),
 })
