@@ -3,6 +3,7 @@ import dish from './entities/dish';
 import restaurant from './entities/restaurant';
 import review from './entities/review';
 import user from './entities/user';
+import { loggerMiddleware } from './middlewares/logger';
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,10 @@ const store = configureStore({
     review,
     user,
   },
+  middleware: (getDefaultMiddleware) => [
+    ...getDefaultMiddleware(),
+    loggerMiddleware
+  ], /** Порядок middleware ВАЖЕН ! */
 });
 
 export default store;

@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { Menu } from '../Menu/component'
+import { MenuContainer } from '../Menu/container'
 import { Reviews } from '../Reviews/component'
 
 export const Restaurant = ({ restaurant }) => {
@@ -8,7 +8,7 @@ export const Restaurant = ({ restaurant }) => {
 		restaurant
       ? <div className={classNames('margin-l-2')}>
         <h2>{restaurant.name}</h2>
-        <Menu dishIds={restaurant.menu} />
+        <MenuContainer restaurantId={restaurant.id} />
         <Reviews reviewIds={restaurant.reviews} />
       </div>
       : null
