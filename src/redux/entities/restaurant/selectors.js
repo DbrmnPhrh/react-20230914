@@ -1,4 +1,4 @@
-const selectRestaurantModule = (state) => state.restaurants;
+const selectRestaurantModule = (state) => state.restaurant;
 
 export const selectRestaurantById = (state, id) => selectRestaurantModule(state).entities[id];
 

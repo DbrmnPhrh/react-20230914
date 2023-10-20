@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getRestaurants } from "../../redux/entities/restaurants/thunks/get-restaurants";
+import { getRestaurant } from "../../redux/entities/restaurant/thunks/get-restaurant";
 import { RestaurantTabs } from "./component";
 
 export const RestaurantTabsContainer = (props) => {
@@ -8,7 +8,7 @@ export const RestaurantTabsContainer = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRestaurants());
+    dispatch(getRestaurant());
   }, []);
 
   return <RestaurantTabs {...props} />;

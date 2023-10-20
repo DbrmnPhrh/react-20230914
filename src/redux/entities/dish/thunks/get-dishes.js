@@ -7,8 +7,4 @@ export const getDishes = createAsyncThunk(
 
     return (await response).json();
   },
-  {
-    /** Условие вызова thunk. Чтобы, например, если блюда были загружены ранее - не грузить их повторно */
-    // condition: (_, { getState }) => !selectDishIds(getState())?.length,
-  }
 );
