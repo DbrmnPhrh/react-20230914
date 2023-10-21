@@ -1,26 +1,19 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { REQUEST_STATUS } from "../../../constants/statuses";
-import { getDishes } from "./thunks/get-dishes";
+import { getDishesByRestaurantIfNotExist } from "./thunks/get-dishes";
 
 /** Подробнее по entityAdapter тут: https://redux-toolkit.js.org/api/createEntityAdapter#crud-functions */
-const entityAdapter = createEntityAdapter();
+const dishEntityAdapter = createEntityAdapter();
 
 const { reducer } = createSlice({
   name: 'dish',
-  initialState: entityAdapter.getInitialState({
-    status: REQUEST_STATUS.idle,
-  }),
-  extraReducers: (builder) => builder
-    .addCase(getDishes.pending, (state) => {
-      state.status = REQUEST_STATUS.pending;
-    })
-    .addCase(getDishes.fulfilled, (state, {payload}) => {
-      entityAdapter.setAll(state, payload);
-      state.status = REQUEST_STATUS.fulfilled;
-    })
-    .addCase(getDishes.rejected, (state) => {
-      state.status = REQUEST_STATUS.rejected;
-    }),
+  initialState: dishEntityAdapter.getInitialState(),
+  extraReducers: (builder) => 
+    builder.addCase(
+      getDishesByRestaurantIfNotExist.fulfilled,
+      (state, { payload } = {}) => {
+        dishEntityAdapter.setMany(state, payload);
+      }
+    ),
 })
 
 export default reducer;

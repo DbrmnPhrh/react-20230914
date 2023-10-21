@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { REQUEST_STATUS } from "../../../constants/statuses";
-import { getReviews } from "./thunks/get-reviews";
+import { getReviewsIfNotExist } from "./thunks/get-reviews";
 
 const entityAdapter = createEntityAdapter();
 
@@ -10,14 +10,14 @@ const { reducer } = createSlice({
     status: REQUEST_STATUS.idle,
   }),
   extraReducers: (builder) => builder
-    .addCase(getReviews.pending, (state) => {
+    .addCase(getReviewsIfNotExist.pending, (state) => {
       state.status = REQUEST_STATUS.pending;
     })
-    .addCase(getReviews.fulfilled, (state, {payload}) => {
+    .addCase(getReviewsIfNotExist.fulfilled, (state, {payload}) => {
       entityAdapter.setAll(state, payload);
       state.status = REQUEST_STATUS.fulfilled;
     })
-    .addCase(getReviews.rejected, (state) => {
+    .addCase(getReviewsIfNotExist.rejected, (state) => {
       state.status = REQUEST_STATUS.rejected;
     }),
 })
