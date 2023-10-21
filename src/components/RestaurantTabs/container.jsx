@@ -1,15 +1,9 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { REQUEST_STATUS } from "../../constants/statuses";
+import { useRequest } from "../../hooks/use-request";
 import { getRestaurantsIfNotExist } from "../../redux/entities/restaurant/thunks/get-restaurant";
 import { RestaurantTabs } from "./component";
 
 export const RestaurantTabsContainer = (props) => {
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getRestaurantsIfNotExist());
-  }, []);
-
-  return <RestaurantTabs {...props} />;
+  const loadingStatus = useRequest(getRestaurantsIfNotExist);
+  return loadingStatus === REQUEST_STATUS.pending ? <div>Loading...</div> : <RestaurantTabs {...props} />;
 }
