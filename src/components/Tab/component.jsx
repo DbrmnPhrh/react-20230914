@@ -1,12 +1,9 @@
-import { useSelector } from "react-redux";
 import { Button } from "../Button/component";
 
-export const Tab = ({restaurantId, onClick, type}) => {
-  const restaurant = useSelector(state => state.restaurant.entities[restaurantId]);
+export const Tab = ({title, onClick, isActive}) => {
   return <Button
-    children={restaurant.name}
     onClick={onClick}
-    type={type}
+    type={isActive ? "active" : "primary"}
     size="medium"
-  ></Button>
+  >{title}</Button>
 }

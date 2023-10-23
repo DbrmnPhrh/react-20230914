@@ -1,16 +1,15 @@
-import classNames from 'classnames'
-import { useSelector } from 'react-redux'
-import { Menu } from '../Menu/component'
-import { Reviews } from '../Reviews/component'
+import classNames from 'classnames';
+import { MenuContainer } from '../Menu/container';
+import { ReviewsContainer } from '../Reviews/container';
 
-export const Restaurant = ({ activeRestaurantId }) => {
-	const restaurant = useSelector(state => state.restaurant.entities[activeRestaurantId]);
-
+export const Restaurant = ({ restaurant }) => {
 	return (
-		<div className={classNames('margin-l-2')}>
-			<h2>{restaurant.name}</h2>
-			<Menu dishIds={restaurant.menu} />
-			<Reviews reviewIds={restaurant.reviews} />
-		</div>
+		restaurant
+      ? <div className={classNames('margin-l-2')}>
+        <h2>{restaurant.name}</h2>
+        <MenuContainer restaurantId={restaurant.id} />
+        <ReviewsContainer restaurantId={restaurant.id}/>
+      </div>
+      : null
 	)
 }

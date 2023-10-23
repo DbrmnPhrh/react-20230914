@@ -1,10 +1,15 @@
 import { useState } from 'react'
+import { useMakeRequest } from '../../hooks/use-make-request'
+import { postReview } from '../../redux/entities/review/thunks/post-review'
 import { Button } from '../Button/component'
 import { Modal } from '../Modal/component'
 import { ReviewEditor } from '../ReviewEditor/component'
 
-export const ReviewEditorButton = () => {
+export const ReviewEditorButton = ({restaurantId}) => {
 	const [isModalOpened, setIsModalOpened] = useState(false)
+
+
+	const [creatingReviewStatus, createNewReview] = useMakeRequest(postReview);
 
 	const onClose = () => setIsModalOpened(false)
 
@@ -24,7 +29,7 @@ export const ReviewEditorButton = () => {
 			></Button>
 			{isModalOpened && (
 				<Modal onClose={onClose} handlerCheckTarget={handlerCheckTarget}>
-					<ReviewEditor onClose={onClose} />
+					<ReviewEditor onClose={onClose} createNewReview={createNewReview} restaurantId={restaurantId}/>
 				</Modal>
 			)}
 		</>
