@@ -1,25 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectRequestStatus } from "../redux/entities/request/selectros";
 
-export const useRequest = (thunk, ...params) => {
-
+export function useMakeRequest(thunk) {
   const request = useRef();
 
   const requestStatus = useSelector((state) => selectRequestStatus(state, request.current?.requestId));
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    request.current = dispatch(thunk(...params));
+  const makeRequest = useCallback(([...params]) => {
+    request.current = dispatch(thunk([...params]));
+  }, [dispatch, thunk]);
 
-    return () => {
-      request.current.abort();
-      request.current = null;
-    }
-
-  }, [thunk, ...params]);
-
-
-  return requestStatus;
+  return [requestStatus, makeRequest];
 }

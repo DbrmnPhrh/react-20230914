@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { selectRestaurantIds } from "../selectors";
 
 export const getRestaurantsIfNotExist = createAsyncThunk(
   'restaurant/getRestaurantsIfNotExist',
@@ -8,9 +9,11 @@ export const getRestaurantsIfNotExist = createAsyncThunk(
     return await response.json();
   },
   {
-    // condition: (restaurantId, { getState }) => {
-    //   const state = getState();
-    //   console.log('stateeeee:', state);
-    // },
+    condition: (_, { getState }) => {
+      const state = getState();
+      const restaurantIds = selectRestaurantIds(state);
+
+      return !restaurantIds.length;
+    }
   }
 );

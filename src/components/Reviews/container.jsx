@@ -13,5 +13,5 @@ export const ReviewsContainer = ({ restaurantId }) => {
 
 	return reviewsLoadingStatus === REQUEST_STATUS.pending || usersLoadingStatus === REQUEST_STATUS.pending
   ? <div>Loading...</div>
-  : <Reviews reviewIds={restaurantReviewIds} />
+  : <Reviews reviewIds={restaurantReviewIds} restaurantId={restaurantId} />
 }
