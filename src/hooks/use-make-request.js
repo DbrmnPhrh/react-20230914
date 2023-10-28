@@ -9,8 +9,8 @@ export function useMakeRequest(thunk) {
 
   const dispatch = useDispatch();
 
-  const makeRequest = useCallback(([...params]) => {
-    request.current = dispatch(thunk([...params]));
+  const makeRequest = useCallback((...params) => {
+    request.current = dispatch(thunk(...params));
   }, [dispatch, thunk]);
 
   return [requestStatus, makeRequest];

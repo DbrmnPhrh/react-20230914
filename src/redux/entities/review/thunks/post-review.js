@@ -1,10 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { restaurantActions } from "../../restaurant";
 
 export const postReview = createAsyncThunk(
   'reviews/postReview',
-  async ({restaurantId, newReview}) => {
-    console.log(restaurantId)
-    console.log(newReview)
+  async (params, { dispatch }) => {
+    const {restaurantId, newReview} = params;
+    console.log(params);
     const review = await fetch(
       `http://localhost:3001/api/review/${restaurantId}`,
       {
@@ -16,6 +17,8 @@ export const postReview = createAsyncThunk(
       }
     ).json();
 
-    console.log('newReview: ', review);
+    dispatch(restaurantActions.addReview({restaurantId, reviewId: review.id}));
+
+    return review;
   },
 );

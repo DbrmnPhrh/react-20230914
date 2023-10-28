@@ -1,5 +1,5 @@
 import { ReviewContainer } from '../Review/container';
-import { ReviewEditorButton } from '../ReviewEditorButton/component';
+import { ReviewEditorContainer } from '../ReviewEditor/container';
 
 export const Reviews = ({ reviewIds, restaurantId }) => (
 	<div>
@@ -10,6 +10,6 @@ export const Reviews = ({ reviewIds, restaurantId }) => (
 					</li>
 				))}
 		</ul>
-		<ReviewEditorButton restaurantId={restaurantId}/>
+		<ReviewEditorContainer restaurantId={restaurantId}/>
 	</div>
 )
