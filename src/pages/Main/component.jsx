@@ -4,6 +4,7 @@ import { Layout } from '../../components/Layout/component'
 import { RestaurantContainer } from '../../components/Restaurant/container'
 import { RestaurantTabsContainer } from '../../components/RestaurantTabs/container'
 import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors'
+import { useGetUsersQuery } from '../../services/api'
 
 export const MainPage = () => {
 	const [activeRestaurantId, setActiveRestaurantId] = useState();

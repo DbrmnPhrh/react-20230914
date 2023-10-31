@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { REQUEST_STATUS } from '../../constants/statuses'
-import { useMakeRequest } from '../../hooks/use-make-request'
-import { postReview } from '../../redux/entities/review/thunks/post-review'
+import { usePostReviewMutation } from '../../services/api'
 import { Button } from '../Button/component'
 import { Modal } from '../Modal/component'
 import { ReviewEditor } from './component'
@@ -9,7 +8,7 @@ import { ReviewEditor } from './component'
 export const ReviewEditorContainer = ({restaurantId}) => {
 	const [isModalOpened, setIsModalOpened] = useState(false)
 
-	const [createReviewStatus, createReview] = useMakeRequest(postReview);
+	const [createReview, { isLoading }] = usePostReviewMutation();
 
 	const onClose = () => setIsModalOpened(false)
 
@@ -22,7 +21,7 @@ export const ReviewEditorContainer = ({restaurantId}) => {
 	return (
 		<>
 			{
-				createReviewStatus === REQUEST_STATUS.pending
+				isLoading === REQUEST_STATUS.pending
 				? <div>Loading...</div>
 				: <Button
 						children='Add new review'
