@@ -1,30 +1,28 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Layout } from '../../components/Layout/component'
 import { RestaurantContainer } from '../../components/Restaurant/container'
 import { RestaurantTabsContainer } from '../../components/RestaurantTabs/container'
-import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors'
-import { useGetUsersQuery } from '../../services/api'
+import { useGetRestaurantsQuery } from '../../services/api'
 
 export const MainPage = () => {
 	const [activeRestaurantId, setActiveRestaurantId] = useState();
-	const restaurantIds = useSelector(selectRestaurantIds);
+	const {data: restaurants, isSuccess: isRestaurantsLoaded} = useGetRestaurantsQuery();
 
 	useEffect(() => {
-		setActiveRestaurantId(restaurantIds[0]);
-	}, [restaurantIds]);
+		restaurants && setActiveRestaurantId(restaurants[0].id);
+	}, [restaurants]);
 
 	return (
 		<Layout>
 			{
 				<RestaurantTabsContainer
+					isRestaurantsLoaded={isRestaurantsLoaded}
+					restaurants={restaurants}
 					activeRestaurantId={activeRestaurantId}
 					onTabClick={setActiveRestaurantId}
 				/>
 			}
-			{activeRestaurantId && (
-				<RestaurantContainer restaurantId={activeRestaurantId} />
-			)}
+			{activeRestaurantId && <RestaurantContainer restaurantId={activeRestaurantId} restaurants={restaurants} />}
 		</Layout>
 	)
 }

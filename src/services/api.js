@@ -7,6 +7,16 @@ export const api = createApi({
     baseUrl: 'http://localhost:3001/api/',
   }),
   endpoints: (builder) => ({
+    getRestaurants: builder.query({
+      query: () => ({
+        url: 'restaurants',
+      })
+    }),
+    getDishes: builder.query({
+      query: (restaurantId) => ({
+        url: `dishes?restaurantId=${restaurantId}`,
+      })
+    }),
     getUsers: builder.query({
       query: () => ({
         url: 'users',
@@ -33,4 +43,4 @@ export const api = createApi({
   })
 });
 
-export const { useGetReviewsQuery, usePostReviewMutation, useGetUsersQuery } = api;
+export const { useGetRestaurantsQuery, useGetDishesQuery, useGetUsersQuery, useGetReviewsQuery, usePostReviewMutation } = api;

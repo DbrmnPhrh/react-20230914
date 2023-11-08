@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../redux/entities/restaurant/selectors";
 import { Restaurant } from "./component";
 
-export const RestaurantContainer = ({restaurantId}) => {
-  const restaurant = useSelector(state => selectRestaurantById(state, restaurantId));
-  return <Restaurant restaurant={restaurant} />;
+export const RestaurantContainer = ({restaurantId, restaurants}) => {
+  const restaurant = restaurants.find(r => r.id === restaurantId);
+
+  return restaurant && <Restaurant restaurant={restaurant} />;
 }
