@@ -43,4 +43,11 @@ export const api = createApi({
   })
 });
 
-export const { useGetRestaurantsQuery, useGetDishesQuery, useGetUsersQuery, useGetReviewsQuery, usePostReviewMutation } = api;
+export const {
+  useGetRestaurantsQuery,
+  useGetDishesQuery,
+  useLazyGetDishesQuery,
+  useGetUsersQuery,
+  useGetReviewsQuery,
+  usePostReviewMutation
+} = api;

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { REQUEST_STATUS } from '../../constants/statuses'
 import { usePostReviewMutation } from '../../services/api'
 import { Button } from '../Button/component'
 import { Modal } from '../Modal/component'
@@ -21,7 +20,7 @@ export const ReviewEditorContainer = ({restaurantId}) => {
 	return (
 		<>
 			{
-				isLoading === REQUEST_STATUS.pending
+				isLoading
 				? <div>Loading...</div>
 				: <Button
 						children='Add new review'

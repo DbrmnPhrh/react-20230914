@@ -1,8 +1,9 @@
-import { useGetDishesQuery } from "../../services/api";
+import { useGetDishesQuery, useLazyGetDishesQuery } from "../../services/api";
 import { Menu } from "./component";
 
 export const MenuContainer = ({restaurantId}) => {
-	const {data: dishes, isSuccess: isDishesLoaded} = useGetDishesQuery(restaurantId);
+	const {data: dishes, isFetching} = useGetDishesQuery(restaurantId);
+	const [loadDishes, {data: lazyDishes, isFetching: isLazyFetching}] = useLazyGetDishesQuery(restaurantId);
 
-  return !isDishesLoaded ? <div>Loading...</div> : <Menu menu={dishes}/>;
+  return (isFetching || isLazyFetching) ? <div>Loading...</div> : <Menu menu={isLazyFetching ? lazyDishes : dishes} loadDishes={loadDishes}/>;
 }
