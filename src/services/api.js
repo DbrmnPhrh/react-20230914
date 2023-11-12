@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const api = createApi({
   reducerPath: 'api',
   tagTypes: ['Reviews'],
+  keepUnusedDataFor: 100, // время жизни кэша
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3001/api/',
   }),

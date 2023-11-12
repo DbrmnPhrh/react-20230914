@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
 import { RestaurantTabContainer } from '../RestaurantTab/container';
 
 export const RestaurantTabs = ({
@@ -12,11 +13,13 @@ export const RestaurantTabs = ({
 			{restaurants?.length > 0 &&
 				restaurants.map((restaurant) => (
 					<div key={restaurant.id} className={classNames('margin-l-2')}>
-						<RestaurantTabContainer
-							restaurantName={restaurant.name}
-							onClick={() => onTabClick(restaurant.id)}
-							isActive={restaurant.id === activeRestaurantId}
-						/>
+						<NavLink to={restaurant.id}>
+							<RestaurantTabContainer
+								restaurantName={restaurant.name}
+								onClick={() => onTabClick(restaurant.id)}
+								isActive={restaurant.id === activeRestaurantId}
+							/>
+						</NavLink>
 					</div>
 				))}
 		</div>
