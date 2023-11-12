@@ -24,10 +24,9 @@ const reducer = (state, action) => {
 	}
 }
 
-export const ReviewEditor = ({ onClose, createNewReview, restaurantId }) => {
-	const [formValue, dispatch] = useReducer(reducer, DEFAULT_REVIEW_VALUES)
-	const onRatingChange = newRating =>
-		dispatch({ type: 'setRating', payload: newRating })
+export const ReviewEditor = ({ onClose, onSubmit }) => {
+	const [formValue, dispatch] = useReducer(reducer, DEFAULT_REVIEW_VALUES);
+	const onRatingChange = (newRating) => dispatch({ type: 'setRating', payload: newRating });
 
 	return (
 		<table>
@@ -80,7 +79,13 @@ export const ReviewEditor = ({ onClose, createNewReview, restaurantId }) => {
 						<div className={classNames('margin-t-2')}>
 							<Button
 								children='Submit'
-								onClick={() => createNewReview(restaurantId, 'xcvxvxvxvx')}
+								onClick={() => {
+									onSubmit({
+										userId: 'a304959a-76c0-4b34-954a-b38dbf310360',
+										text: formValue.reviewText,
+										rating: formValue.rating,
+									});
+								}}
 								type='primary'
 							/>
 							<Button

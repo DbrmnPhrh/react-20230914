@@ -1,23 +1,25 @@
 import classNames from 'classnames';
-import { useSelector } from 'react-redux';
-import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors';
+import { NavLink } from 'react-router-dom';
 import { RestaurantTabContainer } from '../RestaurantTab/container';
 
 export const RestaurantTabs = ({
+	restaurants,
 	onTabClick,
 	activeRestaurantId,
 }) => {
-	const restaurantIds = useSelector(selectRestaurantIds);
+
 	return (
 		<div className={classNames('display-flex', 'margin-t-3')}>
-			{restaurantIds.length > 0 &&
-				restaurantIds.map((id, idx) => (
-					<div key={idx + 1} className={classNames('margin-l-2')}>
-						<RestaurantTabContainer
-							restaurantId={id}
-							onClick={() => onTabClick(id)}
-							isActive={id === activeRestaurantId}
-						/>
+			{restaurants?.length > 0 &&
+				restaurants.map((restaurant) => (
+					<div key={restaurant.id} className={classNames('margin-l-2')}>
+						<NavLink to={restaurant.id}>
+							<RestaurantTabContainer
+								restaurantName={restaurant.name}
+								onClick={() => onTabClick(restaurant.id)}
+								isActive={restaurant.id === activeRestaurantId}
+							/>
+						</NavLink>
 					</div>
 				))}
 		</div>
